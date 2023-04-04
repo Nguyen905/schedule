@@ -69,19 +69,7 @@ export function AuthLayout({ children }) {
                     <div className="auth__form-content">
                         <div className='form'>
                             {children}
-                            <FormGroup
-                                className='form__remember'
-                            >
-                                <FormGroup
-                                    check
-                                    inline
-                                >
-
-                                    <Input type='checkbox' />
-                                    <Label>Remember for 30 days</Label>
-                                </FormGroup>
-                                <Link style={{ marginLeft: '20px' }}>Forgot password</Link>
-                            </FormGroup>
+                            
 
                             <FormGroup >
                                 <Button className='form__button'>Tiếp tục</Button>
