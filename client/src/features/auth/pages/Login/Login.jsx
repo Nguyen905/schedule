@@ -26,23 +26,6 @@ Login.defaultProps = {
     }
 };
 export function Login(props) {
-    const { setDefaultValues, setDataYup } = useFormContext()
-    // useEffect(() => {
-    //     setDefaultValues({
-    //         username: '',
-    //         password: ''
-    //     })
-    //     setDataYup({
-    //         username: yup.string().required('This field is required').min(
-    //             6,
-    //             "Must be more than 6 character"
-    //         ),
-    //         password: yup.string().required('This field is required').min(
-    //             8,
-    //             "Must be more than 8 character"
-    //         ),
-    //     })
-    // })
     return (
         <>
 
@@ -59,7 +42,7 @@ export function Login(props) {
                     <Input type='checkbox' />
                     <Label>Remember for 30 days</Label>
                 </FormGroup>
-                <Link>Forgot password</Link>
+                <Link to='/auth/forgot-password'>Forgot password</Link>
             </FormGroup>
 
         </>
