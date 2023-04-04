@@ -2,13 +2,13 @@ import { useRef } from 'react';
 import { FormGroup, Label, Input } from 'reactstrap'
 import PropTypes from 'prop-types'
 import { useFormContext } from 'react-hook-form'
-import { InputField } from '../../components/common';
+import { InputField } from '../../../../components/common/InputField';
 
 SignUp.defaultProps = {
     title: 'Create an account',
     question: 'You have an account?',
     action: 'Login',
-    url: '/login'
+    url: '/auth/login'
 };
 
 export function SignUp(props) {

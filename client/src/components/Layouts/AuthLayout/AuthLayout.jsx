@@ -53,72 +53,70 @@ export function AuthLayout({ children }) {
     }
 
     return (
-        <div className="App">
-            <div className="auth">
-              
-                <FormProvider {...form} data={data}>
-                    <Form className='auth__form' onSubmit={handleSubmit(onSubmit)}>
-                        <div className="auth__form-logo">
+        <div className="auth">
 
-                        </div>
-                        <div className="auth__form-header">
-                            <h2>{title}</h2>
-                            <p style={{ color: '#475467' }}>{sub_title}
-                                <> </>
-                            </p>
-                        </div>
-                        <div className="auth__form-content">
-                            <div className='form'>
-                                {children}
+            <FormProvider {...form} data={data}>
+                <Form className='auth__form' onSubmit={handleSubmit(onSubmit)}>
+                    <div className="auth__form-logo">
+
+                    </div>
+                    <div className="auth__form-header">
+                        <h2>{title}</h2>
+                        <p style={{ color: '#475467' }}>{sub_title}
+                            <> </>
+                        </p>
+                    </div>
+                    <div className="auth__form-content">
+                        <div className='form'>
+                            {children}
+                            <FormGroup
+                                className='form__remember'
+                            >
                                 <FormGroup
-                                    className='form__remember'
+                                    check
+                                    inline
                                 >
-                                    <FormGroup
-                                        check
-                                        inline
-                                    >
 
-                                        <Input type='checkbox' />
-                                        <Label>Remember for 30 days</Label>
-                                    </FormGroup>
-                                    <Link style={{ marginLeft: '20px' }}>Forgot password</Link>
+                                    <Input type='checkbox' />
+                                    <Label>Remember for 30 days</Label>
                                 </FormGroup>
+                                <Link style={{ marginLeft: '20px' }}>Forgot password</Link>
+                            </FormGroup>
 
-                                <FormGroup >
-                                    <Button className='form__button'>Tiếp tục</Button>
-                                </FormGroup>
-                                <hr />
-                                <FormGroup>
-                                    <Button className='form__google'>
-                                        <div className='form__google-icon'></div>
-                                        <div className='form__text'>Sign in with Google</div>
-                                    </Button>
-                                </FormGroup>
-                                <FormGroup>
-                                    <Button className='form__facebook'>
-                                        <div className='form__facebook-icon'></div>
-                                        <div className='form__text'>
-                                            Sign in with Facebook
-                                        </div>
-                                    </Button>
-                                </FormGroup>
-                                <FormGroup>
-                                    <Button className='form__linkedin'>
-                                        <div className='form__linkedin-icon'></div>
-                                        <div className='form__text'>
-                                            Sign in with LinkedIn
-                                        </div>
-                                    </Button>
-                                </FormGroup>
+                            <FormGroup >
+                                <Button className='form__button'>Tiếp tục</Button>
+                            </FormGroup>
+                            <hr />
+                            <FormGroup>
+                                <Button className='form__google'>
+                                    <div className='form__google-icon'></div>
+                                    <div className='form__text'>Sign in with Google</div>
+                                </Button>
+                            </FormGroup>
+                            <FormGroup>
+                                <Button className='form__facebook'>
+                                    <div className='form__facebook-icon'></div>
+                                    <div className='form__text'>
+                                        Sign in with Facebook
+                                    </div>
+                                </Button>
+                            </FormGroup>
+                            <FormGroup>
+                                <Button className='form__linkedin'>
+                                    <div className='form__linkedin-icon'></div>
+                                    <div className='form__text'>
+                                        Sign in with LinkedIn
+                                    </div>
+                                </Button>
+                            </FormGroup>
 
-                            </div>
                         </div>
-                        <FormGroup className='auth__form-footer'>
-                            <Label>{question} <Link to={url}>{action}</Link></Label>
-                        </FormGroup>
-                    </Form>
-                </FormProvider>
-            </div>
+                    </div>
+                    <FormGroup className='auth__form-footer'>
+                        <Label>{question} <Link to={url}>{action}</Link></Label>
+                    </FormGroup>
+                </Form>
+            </FormProvider>
         </div>
     );
 }

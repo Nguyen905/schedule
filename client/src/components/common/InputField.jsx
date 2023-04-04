@@ -8,10 +8,11 @@ export function InputField(props) {
     const isError = errors[name]
     return (
         <FormGroup className='position-relative'>
-            <Label htmlFor={name}>{label}</Label>
+            <Label htmlFor={name}>
+                {label}
+            </Label>
             <input className={isError ? 'is-invalid form-control' : ' form-control'} placeholder={placeholder} {...register(name)} type={type} />
-            <FormFeedback tooltip >{errors[name]?.message}</FormFeedback>
-
+            <FormFeedback  >{errors[name]?.message}</FormFeedback>
         </FormGroup>
     );
 }
