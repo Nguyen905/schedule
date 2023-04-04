@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom"
-import { AuthLayout } from "../../components/Layouts/AuthLayout/AuthLayout"
+import { AuthLayout } from "../auth/components/AuthLayout/AuthLayout"
 import { Login, SignUp } from "../auth/pages"
 
 export const AuthFeature = () => {
