@@ -2,9 +2,8 @@ import React from 'react';
 import { FormGroup, Label, FormFeedback } from 'reactstrap'
 import { useFormContext } from 'react-hook-form'
 export function InputField(props) {
-    const { register, data, formState: { errors, touchedFields } } = useFormContext()
+    const { register, formState: { errors, touchedFields } } = useFormContext()
     const { type, label, name, placeholder } = props
-
     const isError = errors[name]
     return (
         <FormGroup className='position-relative'>

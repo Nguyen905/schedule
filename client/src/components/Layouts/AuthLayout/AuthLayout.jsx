@@ -9,44 +9,19 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 export function AuthLayout({ children }) {
-
     const location = useLocation();
-    const [data, setData] = useState({})
-    const [defaultValues, setDefaultValues] = useState({})
-    const { title, question, action, url, sub_title } = children.props
-    useEffect(() => {
-        if (location.pathname === '/login') {
-            setDefaultValues({
-                username: '',
-                password: ''
-            })
-            setData({
-                username: yup.string().required('This field is required').min(
-                    6,
-                    "Must be more than 6 character"
-                ),
-                password: yup.string().required('This field is required').min(
-                    8,
-                    "Must be more than 8 character"
-                ),
-            })
-        } else if (location.pathname === '/signup') {
-            setDefaultValues({ ...defaultValues, re_password: '' })
-            setData({
-                ...data,
-                re_password: yup.string().required('This field is required').min(
-                    8,
-                    'Must be more than 8 character'
-                ).oneOf([yup.ref('password'), null], 'Passwords must match'),
-            })
-        }
-    }, [location])
-    const schema = yup.object().shape(data)
+    const { title, question, action, url, sub_title, defaultValues, dataYup } = children.props
+    const schema = yup.object().shape(dataYup)
     const form = useForm({
         defaultValues: defaultValues,
         resolver: yupResolver(schema)
     })
-    const { handleSubmit, formState: { errors } } = form
+    useEffect(() => {
+        form.reset()
+    }, [location])
+
+
+    const { handleSubmit } = form
     const onSubmit = (value) => {
         console.log(value);
 
@@ -55,7 +30,7 @@ export function AuthLayout({ children }) {
     return (
         <div className="auth">
 
-            <FormProvider {...form} data={data}>
+            <FormProvider {...form} setDefaultValues={() => setDefaultValues} setDataYup={() => setDataYup}>
                 <Form className='auth__form' onSubmit={handleSubmit(onSubmit)}>
                     <div className="auth__form-logo">
 
@@ -69,8 +44,6 @@ export function AuthLayout({ children }) {
                     <div className="auth__form-content">
                         <div className='form'>
                             {children}
-                            
-
                             <FormGroup >
                                 <Button className='form__button'>Tiếp tục</Button>
                             </FormGroup>
